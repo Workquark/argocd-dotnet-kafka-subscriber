@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name:  arogocd-kafka-subscriber
+  name:  arogocd-kafka-subscriber-dev
   labels:
-    app.kubernetes.io/name:  arogocd-kafka-subscriber
+    app.kubernetes.io/name:  arogocd-kafka-subscriber-dev
 spec:
   replicas: 1
   selector:
       matchLabels:
-        app.kubernetes.io/name: arogocd-kafka-subscriber
+        app.kubernetes.io/name: arogocd-kafka-subscriber-dev
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -17,11 +17,11 @@ spec:
   template:
     metadata:
       labels:
-        app.kubernetes.io/name:  arogocd-kafka-subscriber
+        app.kubernetes.io/name:  arogocd-kafka-subscriber-dev
     spec:
       containers:
       - image:  joydeep1985/kafka-subscriber
-        name:  arogocd-kafka-subscriber
+        name:  arogocd-kafka-subscriber-dev
         imagePullPolicy: Always
         resources:
           requests:
