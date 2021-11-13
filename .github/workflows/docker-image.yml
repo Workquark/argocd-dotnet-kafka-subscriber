@@ -16,7 +16,7 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: Build the Docker image
-      run: docker build . --file ./Kafka-Subscriber/Dockerfile --tag defyjoy/kafka-subscriber:latest
+      run: docker build . --file ./Kafka-Subscriber/Dockerfile --tag ${{ secrets.DOCKERHUB_USERNAME }}/kafka-subscriber:latest
       
 
       
@@ -32,4 +32,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Build the Docker image
-      run: docker push defyjoy/kafka-subscriber:latest
+      run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/kafka-subscriber:latest
